@@ -9,16 +9,6 @@ import Link from "next/link";
 import { ArrowRight, Sparkles, Zap } from "lucide-react";
 
 export default function LandingPage() {
-  const { isSignedIn, isLoaded } = useUser();
-  const router = useRouter();
-
-  // Auto-redirect signed-in users to dashboard
-  useEffect(() => {
-    if (isLoaded && isSignedIn) {
-      router.push("/dashboard");
-    }
-  }, [isLoaded, isSignedIn, router]);
-
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
@@ -61,7 +51,7 @@ export default function LandingPage() {
               {/* CTA Section */}
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <SignedOut>
-                  <SignInButton>
+                  <SignInButton forceRedirectUrl={"/dashboard"}>
                     <Button 
                       size="lg" 
                       className="group relative overflow-hidden bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 glow-hover"
