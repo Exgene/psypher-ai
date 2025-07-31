@@ -194,6 +194,17 @@ The application automatically creates users with the "free" tier by default. You
 4. See additional events become available
 5. Test tier validation (can only upgrade one level at a time)
 
+### Dummy Credentials for Testing
+
+To test the different tier views directly without needing to sign up or upgrade, you can use the following pre-seeded user accounts. Please note that for this to work, these users must be created in your Clerk development instance, as Clerk handles all authentication.
+
+| Tier | Email | Password |
+|:---|:---|:---|
+| Platinum | `platinumuser@test.com` | `platinumtestuserplatinum` |
+| Gold | `golduser@test.com` | `goldtestusergold` |
+| Silver | `silveruser@test.com` | `silvertestusersilver` |
+| Free | `freetieruser@test.com` | `freeuserfree` |
+
 ## Technical Decisions
 
 ### Database Choice
