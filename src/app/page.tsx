@@ -51,7 +51,7 @@ export default function LandingPage() {
               {/* CTA Section */}
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <SignedOut>
-                  <SignInButton forceRedirectUrl={"/dashboard"}>
+                  <SignInButton>
                     <Button 
                       size="lg" 
                       className="group relative overflow-hidden bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 glow-hover"

@@ -36,7 +36,7 @@ export function Header({ showActions = true, className = "" }: HeaderProps) {
           {showActions && (
             <div className="flex items-center space-x-4">
               <ThemeToggle />
-              
+
               <SignedOut>
                 <SignInButton>
                   <Button size="sm" variant="outline">
@@ -44,10 +44,9 @@ export function Header({ showActions = true, className = "" }: HeaderProps) {
                   </Button>
                 </SignInButton>
               </SignedOut>
-              
+
               <SignedIn>
-                <UserButton 
-                  afterSignOutUrl="/"
+                <UserButton
                   appearance={{
                     elements: {
                       avatarBox: "w-8 h-8",

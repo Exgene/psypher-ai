@@ -13,6 +13,9 @@ export function ClerkProviderWithTheme({
 
   return (
     <ClerkProvider
+      signInForceRedirectUrl="/dashboard"
+      signUpForceRedirectUrl="/dashboard"
+      afterSignOutUrl="/"
       appearance={{
         baseTheme: resolvedTheme === "dark" ? dark : undefined,
         variables: {

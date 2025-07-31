@@ -113,14 +113,14 @@ export default function DashboardPage() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5">
         {/* Header skeleton */}
-        <div className="sticky top-0 z-10 backdrop-blur-md bg-background/80 border-b border-border/50">
+        <div className="z-10 backdrop-blur-md bg-background/80 border-b border-border/50">
           <div className="container mx-auto px-4 py-6">
-            <div className="flex items-center justify-between">
-              <div className="space-y-2">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="space-y-2 w-full sm:w-auto">
                 <Skeleton className="h-8 w-48" />
                 <Skeleton className="h-4 w-64" />
               </div>
-              <Skeleton className="h-12 w-[220px]" />
+              <Skeleton className="h-12 w-full sm:w-[220px]" />
             </div>
           </div>
         </div>
@@ -161,7 +161,7 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5 text-base sm:text-lg">
       {/* Header with floating effect */}
       <div className="z-10 backdrop-blur-md bg-background/80 border-b border-border/50">
         <div className="container mx-auto px-4 py-6">
@@ -170,7 +170,7 @@ export default function DashboardPage() {
               <h1 className="text-3xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
                 Event Dashboard
               </h1>
-              <p className="text-muted-foreground mt-1">
+              <p className="text-muted-foreground mt-1 text-sm sm:text-base">
                 Welcome back, {user?.firstName || "Member"}! Here are your available events for your {" "}
                 <span className="font-semibold text-primary capitalize">{state.currentTier}</span> tier.
               </p>

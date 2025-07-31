@@ -29,7 +29,7 @@ export function TierSelector({
   const CurrentIcon = TIER_ICONS[currentTier];
   
   return (
-    <div className="relative w-[220px]">
+    <div className="relative w-full sm:w-[220px]">
       <Select
         onValueChange={onTierChange}
         disabled={isLoading}
