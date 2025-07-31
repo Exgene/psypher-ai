@@ -15,6 +15,7 @@ A modern, responsive web application that allows authenticated users to view eve
   <img src="screenshots/landing.png" alt="Landing Page" width="400"/>
   <img src="screenshots/login.png" alt="Login Page" width="400"/>
   <img src="screenshots/events.png" alt="Events Dashboard" width="400"/>
+  <img src="screenshots/skeleton.png" alt="Events Dashboard" width="400"/>
 </p>
 
 ### Mobile
