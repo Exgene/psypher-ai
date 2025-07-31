@@ -9,14 +9,27 @@ A modern, responsive web application that allows authenticated users to view eve
 
 ## Screenshots
 
-<!-- Add your screenshots here -->
-<!-- e.g., <img src="path/to/screenshot1.png" width="400"> -->
+### Desktop
+
+<p align="center">
+  <img src="screenshots/landing.png" alt="Landing Page" width="400"/>
+  <img src="screenshots/login.png" alt="Login Page" width="400"/>
+  <img src="screenshots/events.png" alt="Events Dashboard" width="400"/>
+</p>
+
+### Mobile
+
+<p align="center">
+  <img src="screenshots/phone-landing.png" alt="Mobile Landing Page" width="240"/>
+  <img src="screenshots/phone-login.png" alt="Mobile Login Page" width="240"/>
+  <img src="screenshots/phone-events.png" alt="Mobile Events Dashboard" width="240"/>
+</p>
 
 ## Tech Stack
 
 - **Frontend**: Next.js 14 (App Router)
 - **Authentication**: Clerk.dev
-- **Database**: PostgreSQL
+- **Database**: Supabase Postgre SQL
 - **Styling**: Tailwind CSS
 - **ORM**: Drizzle ORM
 - **UI Components**: shadcn/ui + Radix UI
@@ -120,7 +133,7 @@ src/
    ```
 
 3. **Environment Setup**
-   Create a `.env.local` file with the following variables:
+   Create a `.env.local` file with the following variables (refer .env.example):
    ```env
    # Database
    DATABASE_URL="postgresql://username:password@localhost:5432/database_name"
