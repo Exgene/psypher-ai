@@ -1,8 +1,4 @@
 "use client";
-
-import { useEffect } from "react";
-import { useUser } from "@clerk/nextjs";
-import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 import Link from "next/link";
@@ -13,7 +9,7 @@ export default function LandingPage() {
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <main className="flex-1">
-        <section className="relative w-full py-16 md:py-24 lg:py-32 xl:py-48 overflow-hidden">
+        <section className="relative w-full py-24 overflow-hidden">
           {/* Background decoration */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
           <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary/10 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-pulse" />

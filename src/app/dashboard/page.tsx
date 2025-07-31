@@ -1,16 +1,8 @@
 "use client";
 
-import { useEffect, useState, useTransition } from "react";
+import { useEffect, useState, useTransition, useCallback } from "react";
 import { useUser } from "@clerk/nextjs";
 import { getEvents, updateUserTier } from "../actions";
-import { Badge } from "@/components/ui/badge";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { TierSelector } from "@/components/features/TierSelector";
 import { SkeletonCard } from "./SkeletonCard";
 import { AnimatePresence, motion } from "framer-motion";
@@ -30,7 +22,7 @@ export default function DashboardPage() {
     hasLoadedData: false,
   });
 
-  const fetchEventData = async () => {
+  const fetchEventData = useCallback(async () => {
     if (!isSignedIn || !user) {
       setState(prev => ({ ...prev, isLoading: false }));
       return;
@@ -56,9 +48,9 @@ export default function DashboardPage() {
         console.error("Failed to load events:", err);
       }
     });
-  };
+  }, [isSignedIn, user]);
 
-  const handleTierChange = (newTier: string) => {
+  const handleTierChange = useCallback((newTier: string) => {
     setState(prev => ({ ...prev, error: null })); // Clear any previous errors
     
     startTransition(async () => {
@@ -80,7 +72,7 @@ export default function DashboardPage() {
         console.error("Tier update failed:", err);
       }
     });
-  };
+  }, []);
 
   // Effect to handle authentication state changes
   useEffect(() => {
@@ -102,11 +94,11 @@ export default function DashboardPage() {
     }
 
     // User is signed in, fetch data if we haven't already or user changed
-    if (!state.hasLoadedData || !user) {
+    if (isSignedIn && !state.hasLoadedData) {
       setState(prev => ({ ...prev, isLoading: true }));
       fetchEventData();
     }
-  }, [isUserLoaded, isSignedIn, user?.id, state.hasLoadedData]);
+  }, [isUserLoaded, isSignedIn, state.hasLoadedData, fetchEventData]);
 
   // Show loading skeleton when authentication is still loading or when fetching initial data
   if (!isUserLoaded || (state.isLoading && isSignedIn)) {
@@ -210,7 +202,7 @@ export default function DashboardPage() {
             </motion.div>
           )}
         </AnimatePresence>
-        
+
         {/* Events Grid */}
         <div className="relative">
           {/* Show skeleton cards during tier updates */}
@@ -221,7 +213,7 @@ export default function DashboardPage() {
               ))}
             </div>
           )}
-          
+
           {/* Show actual events when not loading */}
           {!isPending && (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -232,7 +224,7 @@ export default function DashboardPage() {
               </AnimatePresence>
             </div>
           )}
-          
+
           {/* Empty state when no events and not loading */}
           {!isPending && state.events.length === 0 && state.hasLoadedData && (
             <motion.div
@@ -253,19 +245,4 @@ export default function DashboardPage() {
       </main>
     </div>
   );
-}
-
-function getTierBadgeClass(tier: string): string {
-  const baseClass =
-    "text-white px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider border-none shadow-md";
-  switch (tier) {
-    case "platinum":
-      return `${baseClass} bg-gradient-to-r from-purple-600 via-purple-700 to-indigo-700`;
-    case "gold":
-      return `${baseClass} bg-gradient-to-r from-yellow-500 via-orange-500 to-orange-600`;
-    case "silver":
-      return `${baseClass} bg-gradient-to-r from-slate-500 via-slate-600 to-slate-700`;
-    default:
-      return `${baseClass} bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600`;
-  }
 }

@@ -3,7 +3,6 @@
  */
 
 import { Crown, Star, Gem, Zap } from "lucide-react";
-import { type Tier } from "@/types";
 
 // Tier system constants
 export const TIER_ICONS = {

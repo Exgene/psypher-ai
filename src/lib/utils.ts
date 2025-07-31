@@ -64,7 +64,7 @@ export function generateId(length: number = 8): string {
  * @param wait - Wait time in milliseconds
  * @returns Debounced function
  */
-export function debounce<T extends (...args: any[]) => any>(
+export function debounce<T extends (...args: any[]) => any> ( // eslint-disable-line @typescript-eslint/no-explicit-any
   func: T,
   wait: number
 ): (...args: Parameters<T>) => void {

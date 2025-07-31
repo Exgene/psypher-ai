@@ -1,6 +1,3 @@
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Skeleton } from "@/components/ui/skeleton";
-
 export function SkeletonCard() {
   return (
     <div className="h-full overflow-hidden bg-card/30 backdrop-blur-sm border border-border/30 shadow-sm rounded-xl animate-pulse">

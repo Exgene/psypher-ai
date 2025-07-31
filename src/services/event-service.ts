@@ -4,9 +4,9 @@
 
 import { eq, inArray, asc } from "drizzle-orm";
 import { db } from "@/lib/database";
-import { events, users } from "@/db/schema";
+import { events } from "@/db/schema";
 import { getAccessibleTiers } from "@/lib/tier-utils";
-import { type Event, type Tier, type EventsResponse } from "@/types";
+import { type Event, type Tier } from "@/types";
 
 /**
  * Get events accessible to a user based on their tier

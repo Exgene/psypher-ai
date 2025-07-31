@@ -4,6 +4,7 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { type ImageWithLoadingProps } from "@/types";
 import { IMAGE_CONFIG } from "@/lib/constants";
+import Image from "next/image";
 
 export function ImageWithLoading({
   src,
@@ -37,7 +38,7 @@ export function ImageWithLoading({
       )}
 
       {/* Actual image */}
-      <img
+      <Image
         src={hasError ? fallbackSrc : src}
         alt={alt}
         className={cn(
@@ -48,6 +49,8 @@ export function ImageWithLoading({
         onLoad={handleLoad}
         onError={handleError}
         loading="lazy"
+        width={1000}
+        height={1000}
       />
 
       {/* Loading overlay with pulse effect */}

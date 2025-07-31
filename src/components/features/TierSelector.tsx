@@ -5,7 +5,6 @@ import {
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue,
 } from "@/components/ui/select";
 import { Loader2 } from "lucide-react";
 import { canUpgradeToTier } from "@/lib/tier-utils";
@@ -22,8 +21,6 @@ export function TierSelector({
   onTierChange,
   isLoading,
   value,
-  disabled = false,
-  className = "",
 }: TierSelectorProps) {
   const currentTier = value as Tier;
   const CurrentIcon = TIER_ICONS[currentTier];
@@ -55,7 +52,6 @@ export function TierSelector({
             const isAvailable = canUpgradeToTier(currentTier, tier as Tier);
             const isCurrentTier = tier === currentTier;
             const TierIcon = TIER_ICONS[tier as Tier];
-            const colorClass = TIER_COLORS[tier as Tier];
             const gradientClass = TIER_GRADIENTS[tier as Tier];
             
             return (
